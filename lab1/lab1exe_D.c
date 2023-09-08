@@ -38,11 +38,11 @@ double taylor_approx(double angle){
 
 int main()
 {
-double angle;
-printf("Please enter the desired angle in radians for both sine functions:");
-scanf("%lf", &angle);
-double sin_func = sin(angle);
-double sin_approx = taylor_approx(angle);
-printf("The exact value is: %lf\nThe approximate value is: %lf\n", sin_func, sin_approx);
-return 0;
+    double angle;
+    printf("Please enter the desired angle in radians for both sine functions:");
+    scanf("%lf", &angle);
+    double sin_func = sin(angle);
+    double sin_approx = taylor_approx(angle);
+    printf("The exact value is: %lf\nThe approximate value is: %lf\n", sin_func, sin_approx);
+    return 0;
 }
