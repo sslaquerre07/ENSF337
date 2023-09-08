@@ -1,3 +1,11 @@
+/*
+ *  File Name: lab1exe_A.c
+ *  Assignment: Lab 1 Exercise A
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: TBD
+ */
+
 #include <stdio.h>
 
 int main(void){
