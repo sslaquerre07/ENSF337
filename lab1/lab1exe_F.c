@@ -11,10 +11,13 @@
 const double G = 9.8;   /* gravitation acceleration 9.8 m/s^2 */
 const double PI = 3.141592654;
 
-void create_table(double v){
-
+double degree_to_radian(double d){
+    /*Converts from degrees to radians for sin() function
+    *Returns the angle in radians
+    */
+    double radian = d*((2*PI)/360.0);
+    return radian;
 }
-
 
 double Projectile_travel_time(double a, double v){
     /*Calculates projectile distance given the angle and a velocity with the formula given in the assignment
@@ -32,11 +35,13 @@ double Projectile_travel_distance(double a, double v){
     return distance;
 }
 
-double degree_to_radian(double d){
-    /*Converts from degrees to radians for sin() function
-    *Returns the angle in radians
-    */
-    double radian = d*((2*PI)/360);
+void create_table(double v){
+    /*Creates table based on velocity input*/
+    printf("Angle\t           t\t          d\n");
+    printf("(deg)\t         (sec)\t         (m)\n");
+    for (double a=0;a<=90;a+=5){
+        printf("%lf\t%lf\t%lf\n", a, Projectile_travel_time(a,v), Projectile_travel_distance(a,v));
+    }
 }
 
 int main(void)
@@ -64,7 +69,7 @@ int main(void)
         }
     }
     
-    //  create_table(velocity);
+    create_table(velocity);
     return 0;
 }
 
