@@ -22,7 +22,9 @@ int factorial(int num){
 double taylor_approx(double angle){
     /*Does the taylor approximation of up to the power of 7*/
     double approx = angle;
+    /*Does the first iteration of the Taylor Series approximation since 1! == 1*/
     int sign_check = 0;
+    /*Allows for the program to alternate between addition and subtaction*/
     for(double i=3;i<=7;i+=2){
         if(sign_check){
             approx += (pow(angle, i)/factorial(i));
