@@ -3,7 +3,7 @@
  *  Assignment: Lab 1 Exercise A
  *  Lab section: 03
  *  Completed by: Samuel Laquerre
- *  Submission Date: TBD
+ *  Submission Date: Sept 11th,2023
  */
 
 #include <stdio.h>

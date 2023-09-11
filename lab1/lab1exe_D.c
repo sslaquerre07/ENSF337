@@ -3,7 +3,7 @@
  *  Assignment: Lab 1 Exercise D
  *  Lab section: 03
  *  Completed by: Sam Laquerre
- *  Submission Date: TBD
+ *  Submission Date: September 11th,2023
  */
 
 

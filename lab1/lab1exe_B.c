@@ -4,7 +4,7 @@
  *  Assignment: Lab 1 Exercise B
  *  Lab section: 03
  *  Completed by: Sam Laquerre
- *  Submission Date: TBD
+ *  Submission Date: September 11th,2023
  */
 
 #include <stdio.h>
