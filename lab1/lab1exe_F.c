@@ -1,6 +1,6 @@
 /*
- *  File Name: lab1exe_A.c
- *  Assignment: Lab 1 Exercise A
+ *  File Name: lab1exe_F.c
+ *  Assignment: Lab 1 Exercise F
  *  Lab section: 03
  *  Completed by: Samuel Laquerre
  *  Submission Date: Sept 11th,2023
