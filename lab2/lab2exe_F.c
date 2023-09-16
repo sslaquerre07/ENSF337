@@ -1,46 +1,76 @@
-/* lab2exe_F.c
- * ENSF 337, Lab 2 Exercise F
+/*
+ *  Written by: M. Moussavi
+ * lab2exe_F.c
+ * ENSF 337 - Lab 2 - Execise F
  */
+/********************************************************************
+ One objective of this program is to use sizeof operator to find the number of
+ bytes of memory alloacted for simple varibles, pointers, and arrays.
+ 
+ The second objective is is to demonstrate how array notations in a function
+ argument is still treated as a pointer.
+ 
+ ********************************************************************/
 
 #include <stdio.h>
 
+void try_to_change(double* dest);
+void try_to_copy(double dest[], double source[]);
+double add_them (double a[5]);
 
-void reverse(const int *source, int n, int* reversed, int* m);
 
 int main(void)
 {
-    int a[] = { 100, 9, 17, 0, 15 };
-    int size_a;
-    int i;
-    int reversed[5];
-    int n;
+    double sum = 0;
+    double x[4];
+    double y[] = {2.3, 1.2, 2.0, 4.0};
+    printf(" sizeof(double) is %d bytes.\n", (int) sizeof(double));
+    printf(" size of x in main is:  %d bytes.\n", (int) sizeof(x));
+    printf(" y has %d elements and its size is:  %d bytes.\n",
+           (int) (sizeof(y)/ sizeof(double)), (int) sizeof(y));
     
-    size_a = sizeof(a) / sizeof(a[0]);
+    /* Point one */
     
-    printf("a has %d elements:", size_a);
-    for (i = 0; i < size_a; i++)
-        printf("  %d", a[i]);
-    printf("\n");
-    reverse(a, size_a, reversed, &n);
-    printf("reversed values from a:");
-    for (i = 0; i < n; i++)
-        printf("  %d", reversed[i]);
-    printf("\n");
+    try_to_copy(x, y);
+    
+    try_to_change(x);
+    
+    sum = add_them(&y[1]);
+    printf("\n sum of values in y[1], y[2] and y[3] is:  %.1f\n", sum);
     
     return 0;
 }
 
 
-void reverse(const int *source, int n_source,
-             int* reversed, int* m)
+void try_to_copy(double dest[], double source[])
 {
-    int i;
-    *m = 0;
-    for (i = n_source -1; i >= 0; i--) {
-        reversed[*m] = source[i];
-        (*m)++;
-    }
-    printf("%d", *m);
-    /* point one  (NOTE: This is *outside* of the for loop.) */
+    dest = source;
+    
+    /* point two*/
+    
+    return;
 }
 
+void try_to_change(double* dest)
+{
+    dest [3] = 49.0;
+    
+    /* point three*/
+    
+    printf("\n sizeof(dest) in try_to_change is %d bytes.\n", (int)sizeof(dest));
+    return;
+}
+
+
+double add_them (double arg[5])
+{
+    *arg = -8.25;
+    
+    /* point four */
+    
+    printf("\n sizeof(arg) in add_them is %d bytes.\n", (int) sizeof(arg));
+    printf("\n Incorrect array size computation: add_them says arg has %d"
+           " element.\n", (int) (sizeof(arg) / sizeof(double)));
+    
+    return arg[0] + arg[1] + arg[2];
+}
