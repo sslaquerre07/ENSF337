@@ -1,7 +1,9 @@
 /*
- *
- * lab2exe_D.c
- * ENSF 337 - Lab 2 - Execise D
+ *  File Name: lab2exe_D.c
+ *  Assignment: Lab 2 Exercise D
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Sept 15th,2023
  */
 
 #include <stdio.h>
@@ -24,7 +26,9 @@ int main(void)
 {
   int millisec;
   int minutes;
-  double seconds;   
+  int *to_min = &minutes;
+  double seconds;
+  double *to_sec = &seconds;
   int nscan;
 
   printf("Enter a time interval as an integer number of milliseconds: ");
@@ -38,6 +42,7 @@ int main(void)
   printf("Doing conversion for input of %d ms ... \n", millisec);
 
   /* MAKE A CALL TO time_convert HERE. */
+  time_convert(millisec, to_min, to_sec);
 
   printf("That is equivalent to %d minute(s) and %f second(s).\n", minutes,
 	 seconds);
@@ -46,3 +51,14 @@ int main(void)
 }
 
 /* WRITE YOUR FUNCTION DEFINITION FOR time_convert HERE. */
+void time_convert(int ms_time, int *minutes_ptr, double *seconds_ptr){
+  if (ms_time < 0){
+    printf("Invalid input, please try again");
+    *seconds_ptr = 0;
+    *minutes_ptr = 0;
+  }
+  else{
+    *minutes_ptr = ms_time/60000;
+    *seconds_ptr = (ms_time/1000.0) - 60*(*minutes_ptr);
+  }
+}
