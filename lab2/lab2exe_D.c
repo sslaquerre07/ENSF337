@@ -52,13 +52,12 @@ int main(void)
 
 /* WRITE YOUR FUNCTION DEFINITION FOR time_convert HERE. */
 void time_convert(int ms_time, int *minutes_ptr, double *seconds_ptr){
-  if (ms_time < 0){
-    printf("Invalid input, please try again");
-    *seconds_ptr = 0;
-    *minutes_ptr = 0;
+  while (ms_time < 0){
+    printf("Invalid input, please try again\n");
+    printf("Enter a time interval as an integer number of milliseconds: ");
+    scanf("%d", &ms_time);
+
   }
-  else{
-    *minutes_ptr = ms_time/60000;
-    *seconds_ptr = (ms_time/1000.0) - 60*(*minutes_ptr);
-  }
+  *minutes_ptr = ms_time/60000;
+  *seconds_ptr = (ms_time/1000.0) - 60*(*minutes_ptr);
 }
