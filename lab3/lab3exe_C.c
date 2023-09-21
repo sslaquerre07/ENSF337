@@ -42,6 +42,7 @@ void pascal_triangle(int n) {
     //Initializes the first two iterations of the array that don't fit into the algortithm
     int init_array[20][21] = {{1}, {1,1}};
 
+    //Used to keep track of current # of elements in the row
     int elem_num;
 
     //Creates all new rows
