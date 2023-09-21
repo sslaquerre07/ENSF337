@@ -56,22 +56,47 @@ int main(void)
 
 int substring(const char *s1, const char* s2)
 {
-    // This function is incomplete. Student must remove the next line and
-    // complete this function...
-    printf ("\nFunction substring is incmplete and doesn't work.\n");
-    
+    int match = 0;
+
+    //Letter Check
+    for(int i = 0;i<strlen(s1);i++){
+        if(s1[i] == s2[0]){
+            match = 1;
+            for(int j = 1;j<strlen(s2);j++){
+                if(s1[i+1] == s2[j]){
+                    i++;
+                    continue;
+                }
+                else{
+                    match = 0;
+                    break;
+                }
+            }
+            if(match == 1){
+                return 1;
+            }
+            else{
+                continue;
+            }    
+        }
+        else{
+            continue;
+        }
+    }
     return 0;
 }
 
 void select_negatives(const int *source, int n_source,
                       int* negatives_only, int* number_of_negatives)
 {
-    // This function is incomplete. Student must remove the next line and
-    // complete this function...
-    printf ("\nFunction select_negatives is incmplete and doesn't work.\n");
-    
     int i;
     *number_of_negatives = 0;
+    for(i=0;i<n_source;i++){
+        if (source[i] < 0){
+            negatives_only[*number_of_negatives] = source[i];
+            *number_of_negatives += 1;
+        }
+    }
     
     return;
 }
