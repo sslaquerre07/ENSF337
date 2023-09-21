@@ -20,22 +20,38 @@ void pascal_triangle(int n);
  row 4:  1   4   6   4   1
  */
 
+void print_triangle(int **array[][21], int *rows);
+
 int main() {
     int nrow;
     // These are ALL of the variables you need!
     printf("Enter the number of rows (Max 20): ");
-    scanf("%d", &nrow);
-    if(nrow <= 0 || nrow > 20) {
-        printf("Error: the maximum number of rows can be 20.\n");
-        exit(1);
-    }
-    
+    scanf("%d", &nrow);  
     pascal_triangle(nrow);
     return 0;
 }
 
 void pascal_triangle(int n) {
     // STUDENTS MUST COMPLETE THE REST OF IMPLEMENATION OF THIS FUNCTION
+
+    while((n < 0) || (n > 20)){
+        printf("Invalid input, please try again:");
+        scanf("%d", &n);
+    }
+    int init_array[20][21] = {{1}, {1,1}};
+    print_triangle(init_array[0][0], &n);
+}
+
+void print_triangle(int **array[][21], int *rows){
+    int elem = 0;
+    for(int i = 0;i<=*rows;i++){
+        printf("Row #%d: ", i);
+        elem = i+1;
+        for(int j = 0; j<elem; j++){
+            printf("%d ", *array);
+        }
+        printf("\n");
+    }
 }
 
 
