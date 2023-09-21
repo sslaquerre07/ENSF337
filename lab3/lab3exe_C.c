@@ -20,35 +20,53 @@ void pascal_triangle(int n);
  row 4:  1   4   6   4   1
  */
 
-void print_triangle(int **array[][21], int *rows);
-
 int main() {
     int nrow;
     // These are ALL of the variables you need!
     printf("Enter the number of rows (Max 20): ");
     scanf("%d", &nrow);  
     pascal_triangle(nrow);
-    return 0;
 }
+
+
 
 void pascal_triangle(int n) {
     // STUDENTS MUST COMPLETE THE REST OF IMPLEMENATION OF THIS FUNCTION
 
+    //Checks if the input is valid or not
     while((n < 0) || (n > 20)){
         printf("Invalid input, please try again:");
         scanf("%d", &n);
     }
-    int init_array[20][21] = {{1}, {1,1}};
-    print_triangle(init_array[0][0], &n);
-}
 
-void print_triangle(int **array[][21], int *rows){
+    //Initializes the first two iterations of the array that don't fit into the algortithm
+    int init_array[20][21] = {{1}, {1,1}};
+
+    int elem_num;
+
+    //Creates all new rows
+    for(int i=2;i<n;i++){
+        elem_num = i+1;
+        //Checks if the input is already taken care of in the first two rows
+        if(n<=i){
+            break;
+        }
+        else{
+            init_array[i][0] = 1;
+            for(int j=1;j<elem_num-1;j++){
+                init_array[i][j] = (init_array[i-1][j-1]) + (init_array[i-1][j]);
+            }
+            init_array[i][elem_num-1] = 1;
+        }
+    }
+
+    //Prints out the array
     int elem = 0;
-    for(int i = 0;i<=*rows;i++){
+    for(int i = 0;i<n;i++){
         printf("Row #%d: ", i);
         elem = i+1;
         for(int j = 0; j<elem; j++){
-            printf("%d ", *array);
+            printf("%d ", init_array[i][j]);
         }
         printf("\n");
     }
