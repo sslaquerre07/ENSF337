@@ -56,6 +56,7 @@ int main(void)
 
 int substring(const char *s1, const char* s2)
 {
+    //Used to check whether there is a potential match or not
     int match = 0;
 
     //Letter Check
