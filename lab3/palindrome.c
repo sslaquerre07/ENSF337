@@ -41,12 +41,9 @@ int main(void)
     
     while(strcmp(str, "done") !=0) /* Keep looping unless str matches "done". */
     {
-        
-#if 0
         strip_out(str);
         
         p = is_palindrome(str);
-#endif
         
         if(!p)
             printf("\n \"%s\" is not a palindrome.", temp);
