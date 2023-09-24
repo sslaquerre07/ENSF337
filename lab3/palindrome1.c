@@ -41,9 +41,12 @@ int main(void)
     
     while(strcmp(str, "done") !=0) /* Keep looping unless str matches "done". */
     {
+        
+#if 1
         strip_out(str);
         
         p = is_palindrome(str);
+#endif
         
         if(!p)
             printf("\n \"%s\" is not a palindrome.", temp);
@@ -60,6 +63,7 @@ int main(void)
     
     return 0;
 }
+
 
 
 int is_palindrome (const char *str){
@@ -98,6 +102,7 @@ void strip_out(char *str){
         }
     }
 }
+
 
 
 
