@@ -34,6 +34,8 @@ void funct (const char x[8], char y[], int n)
         x--;
         y++;
     }
+
+    printf("%c", x[3]);
     
     // Point Two
     
