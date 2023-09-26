@@ -26,8 +26,10 @@ int main(void)
 {
     int p =0;
     char str[SIZE], temp[SIZE];
-    
-    fgets(str, SIZE, stdin);
+
+    FILE *fp;
+    fp = fopen("palindrome.txt", "r");
+    fgets(str, SIZE,fp);
     
     /* Remove end-of-line character if there is one in str.*/
     if (str[strlen(str) - 1] == '\n')
@@ -53,13 +55,14 @@ int main(void)
         else
             printf("\n \"%s\" is a palindrome.", temp);
         
-        fgets(str, SIZE, stdin);
+        fgets(str, SIZE, fp);
         
         /* Remove end-of-line character if there is one in str.*/
         if(str[strlen(str) - 1] == '\n')
             str[strlen(str) - 1]= '\0';
         strcpy(temp, str);
     }
+    fclose(fp);
     
     return 0;
 }
