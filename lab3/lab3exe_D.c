@@ -30,7 +30,7 @@ void select_negatives(const int *source, int n_source,
 int main(void)
 {
     char s[] = "Knock knock! Who's there?";
-    int a[] = { -11, 90, -11, 5, -22 };
+    int a[] = {-11, 90, -11, 5, -22 };
     int size_a;
     int i;
     int negative[5];
