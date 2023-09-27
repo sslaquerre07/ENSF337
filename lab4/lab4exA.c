@@ -4,7 +4,7 @@
 //
 
 #include <stdio.h>
-
+#define ELEMENTS(array) ((sizeof(array)/sizeof(array[0])))
 
 
 int main()
