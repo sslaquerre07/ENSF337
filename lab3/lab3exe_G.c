@@ -35,7 +35,7 @@ void funct (const char x[8], char y[], int n)
         y++;
     }
 
-    printf("%c", x[3]);
+    printf("%c", y[-3]);
     
     // Point Two
     
