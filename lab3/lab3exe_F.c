@@ -21,11 +21,11 @@ int main(void)
     *(z-1) = *(z-i) + z[0];
     z[1] = *z * i;
     *(z+2) = *(&a[2] - i);
-    z = z + 3;
+    z = z+3;
     z[3] = -9;
     
     i = a - &a[6];
-    printf("%d", i);
+    printf("%d", z[3]);
     // point one
     
     return 0;

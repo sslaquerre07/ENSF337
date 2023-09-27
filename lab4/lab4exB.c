@@ -9,7 +9,7 @@
 #include <string.h>
 
 int my_strlen(const char *s);
-/*  Duplicates strlen from <string.h>, except return type is int.
+/*  Duplicates my_strlen from <string.h>, except return type is int.
  *  REQUIRES
  *     s points to the beginning of a string.
  *  PROMISES
@@ -17,8 +17,8 @@ int my_strlen(const char *s);
  *     terminating null.
  */
 
-void my_strncat(char *dest, const char *source, int);
-/*  Duplicates strncat from <string.h>, except return type is void.
+void my_strncat(char *dest, const char *source, int n);
+/*  Duplicates my_strncat from <string.h>, except return type is void.
  *   dest and source point to the beginning of two strings.
  *  PROMISES
  *     appends source to the end of dest. If length of source is more than n.
@@ -48,10 +48,10 @@ int main(void)
     int length;
     int y;
     
-    printf("\nTESTING strlen FUNCTION ... \n");
+    printf("\nTESTING my_strlen FUNCTION ... \n");
     
-    /* using strlen function */
-    length = (int) strlen(my_string);
+    /* using my_strlen function */
+    length = (int) my_strlen(my_string);
     printf("\nExpected to display: my_string length is 0.");
     printf("\nmy_string length is %d.", length);
     
@@ -65,7 +65,7 @@ int main(void)
     printf("\nExpected to display: my_string contains banana.");
     printf("\nmy_string contains %s", my_string);
     
-    length = (int) strlen(my_string);
+    length = (int) my_strlen(my_string);
     printf("\nExpected to display: my_string length is 6.");
     printf("\nmy_string length is %d.", length);
     
@@ -73,7 +73,7 @@ int main(void)
     printf("\nExpected to display: my_string contains \"\".");
     printf("\nmy_string contains:\"%s\"", my_string);
     
-    length = (int) strlen(my_string);
+    length = (int) my_strlen(my_string);
     printf("\nExpected to display: my_string length is 0.");
     printf("\nmy_string length is %d.", length);
     
@@ -81,26 +81,26 @@ int main(void)
     printf("\nExpected to display: my_string size is still 100 bytes.");
     printf("\nmy_string size is still %d bytes.", bytes);
     
-    printf("\n\nTESTING strncat FUNCTION ... \n");
-    /* strncat append the first 3 characters of str5 to the end of my_string */
-    strncat(my_string, str5, 3);
+    printf("\n\nTESTING my_strncat FUNCTION ... \n");
+    /* my_strncat append the first 3 characters of str5 to the end of my_string */
+    my_strncat(my_string, str5, 3);
     printf("\nExpected to display: my_string contains \"tic\"");
     printf("\nmy_string contains \"%s\"", my_string);
     
-    length = (int) strlen(my_string);
+    length = (int) my_strlen(my_string);
     printf("\nExpected to display: my_string length is 3.");
     printf("\nmy_string length is %d.", length);
     
-    strncat(my_string, str2,  4);
+    my_strncat(my_string, str2,  4);
     printf("\nExpected to display: my_string contains \"tic-tac\"");
     printf("\nmy_string contains:\"%s\"", my_string);
     
-    /* strncat append ONLY up ot '\0' character from str3 -- not 6 characters */
-    strncat(my_string, str3, 6);
+    /* my_strncat append ONLY up ot '\0' character from str3 -- not 6 characters */
+    my_strncat(my_string, str3, 6);
     printf("\nExpected to display: my_string contains \"tic-tac-toe\"");
     printf("\nmy_string contains:\"%s\"", my_string);
     
-    length = (int) strlen(my_string);
+    length = (int) my_strlen(my_string);
     printf("\nExpected to display: my_string has 11 characters.");
     printf("\nmy_string has %d characters.", length);
     
@@ -123,4 +123,26 @@ int main(void)
         printf("\n\"Orange\" is greater than \"Apple\" ... strcmp returns %d\n", y);
     
     return 0;
+}
+
+
+int my_strlen(const char *s){
+    int length = 0;
+    while(*s){
+        length++;
+        s++;
+    }
+    return length;
+}
+
+void my_strncat(char *dest, const char *source, int n){
+    while(*dest != '\0'){
+        dest++;
+    }
+    for(int i = 0;i<n;i++){
+        *dest = *source;
+        dest++;
+        source++;
+    }
+    *dest = '\0';
 }
