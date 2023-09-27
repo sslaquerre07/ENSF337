@@ -1,9 +1,9 @@
 /*
- *  lab3exe_C.c
- *  ENSF 337, lab3 Exercise C
- *
- *  In this program the implementatiom of function pascal_trangle is missing.
- *  Studtent must complete this function.
+ *  File Name: lab3exe_C.c
+ *  Assignment: Lab 3 Exercise C
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Sept 27th,2023
  */
 
 #include <stdio.h>
@@ -49,7 +49,7 @@ void pascal_triangle(int n) {
     for(int i=2;i<n;i++){
         elem_num = i+1;
         //Checks if the input is already taken care of in the first two rows
-        if(n<=i){
+        if(n<=2){
             break;
         }
         else{

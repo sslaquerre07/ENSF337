@@ -1,9 +1,9 @@
-/* File: palindrome.c
- *  ENSF 337
- *  Exercise E - Lab 3
- *  Abstract: The program receives a string (one or more words) and indicates
- *  if the string is a palindrome or not. Plaindrome is a phrase that spells the
- *  same from both ends
+/*
+ *  File Name: lab3exe_E.c
+ *  Assignment: Lab 3 Exercise E
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Sept 27th,2023
  */
 
 #include <stdio.h>
@@ -26,7 +26,7 @@ int main(void)
 {
     int p =0;
     char str[SIZE], temp[SIZE];
-
+    /*Opens and reads the file*/
     FILE *fp;
     fp = fopen("palindrome.txt", "r");
     fgets(str, SIZE,fp);
@@ -36,20 +36,14 @@ int main(void)
         str[strlen(str) - 1] = '\0';
     
     strcpy(temp,str);
-    
     /* This loop is infinite if the string "done" never appears in the
      * input.  That's a bit dangerous, but OK in a test harness where
      * the programmer is controlling the input. */
     
     while(strcmp(str, "done") !=0) /* Keep looping unless str matches "done". */
     {
-        
-#if 1
         strip_out(str);
-        
         p = is_palindrome(str);
-#endif
-        
         if(!p)
             printf("\n \"%s\" is not a palindrome.", temp);
         else
@@ -63,7 +57,6 @@ int main(void)
         strcpy(temp, str);
     }
     fclose(fp);
-    
     return 0;
 }
 
