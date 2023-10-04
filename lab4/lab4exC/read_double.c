@@ -12,12 +12,10 @@ int read_real(char* digits,int n, double* num)
   if(get_string(digits, n)== EOF)
     return EOF;
 
-  if(is_valid_integer(digits)){
+  if(is_valid_double(digits)){
     if(digits[0] == '-')
       *num = -convert_to_double(digits + 1);
     else if(digits[0] == '+') 
-      *num = convert_to_double(digits + 1);
-    else if(digits[0] == '.') 
       *num = convert_to_double(digits + 1);
     else
       *num = convert_to_double(digits);
@@ -28,7 +26,7 @@ int read_real(char* digits,int n, double* num)
 }
 
 
-// INCOMPLETE
+//COMPLETE
 int is_valid_double(const char* digits)
 {
   int valid = 1;
@@ -61,8 +59,7 @@ int is_valid_double(const char* digits)
   return valid;
 }
 
-
-// INCOMPLETE
+//COMPLETE
 double convert_to_double(const char* digits)
 {
   double sum = 0;
@@ -82,6 +79,7 @@ double convert_to_double(const char* digits)
     else{
         sum += ((digits[i] - '0')*pow(10,-n));
         n++;
+        i++;
     }
   }
   return sum;
