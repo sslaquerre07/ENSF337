@@ -1,3 +1,4 @@
+
 /*
  *  File: lab4exE.c
  *  ENSF 337, lab 4, Exercise E
@@ -11,14 +12,14 @@
 // some flaws in the main function and improper design of the function
 // create_array.
 
-void create_array(double * x, unsigned long n);
-void populate_array(double *array, int n);
+double* create_array(double * x, unsigned long n);
+void populate_array(double *array, unsigned long n);
 
 int main(void) {
     printf("\nProgram started...\n");
     double *array = NULL;
     int n = 20;
-    create_array(array, n);
+    array = create_array(array, n);
     
     if( array != NULL) {
         populate_array(array, n);
@@ -38,15 +39,16 @@ int main(void) {
 }
 
 // THE FOLLOWING FUNCTION IS NOT PROPERLY DESINGED AND NEEDS TO BE FIXED
-void create_array(double *x, unsigned long n) {
+double* create_array(double *x, unsigned long n) {
     x = malloc(n *sizeof(double));
     if(x == NULL){
         printf("Sorry Memory Not Available. Program Terminated.\n");
         exit(1);
     }
+    return x;
 }
 
-void populate_array(double *array, int n) {
+void populate_array(double *array, unsigned long n) {
     int i;
     for(i = 0; i < n; i++)
         array[i] = (i + 1) * 100;
