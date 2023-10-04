@@ -1,7 +1,10 @@
 
 /*
- *  File: lab4exE.c
- *  ENSF 337, lab 4, Exercise E
+ *  File Name: lab4exe_E.c
+ *  Assignment: Lab 4 Exercise E
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Oct 4th,2023
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,7 +41,6 @@ int main(void) {
     return 0;
 }
 
-// THE FOLLOWING FUNCTION IS NOT PROPERLY DESINGED AND NEEDS TO BE FIXED
 double* create_array(double *x, unsigned long n) {
     x = malloc(n *sizeof(double));
     if(x == NULL){

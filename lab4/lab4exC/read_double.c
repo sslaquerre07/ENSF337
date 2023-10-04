@@ -1,6 +1,9 @@
-/* read_int.c
- * ENSF 337 Lab 4 Exercise  E
- *
+/*
+ *  File Name: read_double.c
+ *  Assignment: Lab 4 Exercise C
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Oct 4th,2023
  */
 
 #include "read_input.h"

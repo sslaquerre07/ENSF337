@@ -1,9 +1,11 @@
 /*
- *  lab4exB.c
- *
- * ENSF 337 fall 2023 Lab 4 Exercise  B
- *
+ *  File Name: lab4exe_B.c
+ *  Assignment: Lab 4 Exercise B
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Oct 4th,2023
  */
+
 
 #include <stdio.h>
 #include <string.h>

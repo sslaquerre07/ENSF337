@@ -1,7 +1,11 @@
 
-//  lab2exA.c
-// ENSF 337 fall 2023 Lab 4 Exercise  
-//
+/*
+ *  File Name: lab4exe_A.c
+ *  Assignment: Lab 4 Exercise A
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Oct 4th,2023
+ */
 
 #include <stdio.h>
 #define ELEMENTS(array) ((sizeof(array)/sizeof(array[0])))

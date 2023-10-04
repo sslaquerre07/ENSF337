@@ -1,6 +1,9 @@
-/* prog_one.c
- * ENSF 337 Lab 4 Exercise  E
- *
+/*
+ *  File Name: prog_two.c
+ *  Assignment: Lab 4 Exercise C
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Oct 4th,2023
  */
 
 #include <stdio.h>
@@ -29,7 +32,6 @@ int main(void)
       }
       else
 	      printf("\n%s is an invalid real number.", digits);
-    }
-    
+    }  
   return 0;
 }
