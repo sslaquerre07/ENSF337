@@ -9,8 +9,8 @@
 
 int main(void)
 {
-    Point alpha = { "A1", 2.3, 4.5} ;
-    Point beta = { "B1", 25.9, 30.0 } ;
+    Point alpha = { "A1", 2.3, 4.5, 56.0} ;
+    Point beta = { "B1", 25.9, 30.0, 97.0} ;
     printf ("Display the values in alpha, and beta: ");
     display_struct_point(alpha);
     display_struct_point(beta);

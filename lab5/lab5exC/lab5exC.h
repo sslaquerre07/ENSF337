@@ -11,6 +11,7 @@ typedef struct point
     char label[10];  // a label for a point
     double x ;       // x coordinate for point in a Cartesian coordinate system
     double y;        // y coordinate for point in a Cartesian coordinate system
+    double z;        // z coordinate for point in a Cartesian coordinate system
 } Point;
 
 Point mid_point(const Point* p1, const Point* p2, const char* label);
