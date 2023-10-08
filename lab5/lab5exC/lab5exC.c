@@ -45,30 +45,37 @@ int main(void)
 
 void display_struct_point(const Point x)
 {
-    printf("\n%s <%.2lf, %.2lf>", x.label, x.x, x.y);
+    printf("\n%s <%.2lf, %.2lf, %.2lf>", x.label, x.x, x.y, x.z);
 }
 
 
+// Complete, ask about the string though
 Point mid_point(const Point* p1, const Point* p2, const char* label)
 {
-    // This function is incomplete and must be completed by the students
-    // YOU ARE NOT ALLOWED TO USE ANY STRING LIBRARY FUNCTIONS IN THIS FUNCTION
+    double a = ((p1->x)+(p2->x))/2.0;
+    double b = ((p1->y)+(p2->y))/2.0;
+    double c = ((p1->z)+(p2->z))/2.0;
     
-    Point middle = {"?", 0, 0};
+    Point middle = {"M1", a, b, c};
     
     return middle;
 }
 
+//Complete
 void swap(Point* p1, Point *p2)
 {
-    // This function is incomplete and must be completed by the students
+    Point temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
 }
 
+//Complete
 double distance(const Point* p1, const Point* p2)
 {
-    // This function is incomplete and must be completed by the students
-    // NOTE: IN THIS FUNCTION YOU ARE NOT ALLOWED TO USE THE ARROW OPERATOR ->
-
-    return 0;
+    double dist;
+    double inside_root;
+    inside_root = pow(((*p2).x - (*p1).x), 2.0) + pow(((*p2).y - (*p1).y), 2.0) + pow(((*p2).z - (*p1).z), 2.0);
+    dist = pow(inside_root, 0.5);
+    return dist;
 }
 
