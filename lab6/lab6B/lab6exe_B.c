@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "lab5exe_B.h"
+#include "lab6exe_B.h"
 
 int main(void) {
     char input_filename[30] = "lab6exe_B.txt";
@@ -17,7 +17,7 @@ int main(void) {
     display_single_column(&intVec);
     
     display_multiple_column(&intVec, 4, output_filename);
-    
+
     return 0;
 }
 
@@ -51,6 +51,22 @@ void display_single_column(const IntVector* intV){
 
 void display_multiple_column(const IntVector *intV, int col, const char* output_filename)
 {
-    // STUDENTS MUST COMPLETE THE DEFINITION OF THIS FILE
+    FILE *fp1 = fopen(output_filename, "wt");
+    int data_num = intV->number_of_data;
+    int rows;
+    if(data_num % col != 0){
+        rows = data_num/col + 1;
+    }
+    else{
+        rows = data_num/col;
+    }
+
+    for(int row = 0; row<rows;row++){
+        for(int line = 0;line<col;line++){
+            int pos = (row*col+line);
+            printf("%d ", intV->storage[pos]);
+        }
+        printf("\n");
+    }
 }
 
