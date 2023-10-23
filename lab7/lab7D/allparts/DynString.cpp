@@ -48,14 +48,16 @@ void DynString::append(const DynString& tail)
     int tail_len = strlen(new_str);
     int new_len = lengthM + tail_len;
     char* new_array = new char[new_len+1];
-    for(int i = 0;i<new_len;i++){
-        while(i<(new_len - tail_len)){
-            new_array[i] = storageM[i];
-            i++;
-        }
-        static int j = 0;
+    int i = 0;
+    while(i<(new_len - tail_len)){
+        new_array[i] = storageM[i];
+        i++;
+    }
+    int j = 0;
+    while(j<tail_len){
         new_array[i] = new_str[j];
         j++;
+        i++;
     }
     new_array[new_len] = '\0';
     delete [] storageM;
