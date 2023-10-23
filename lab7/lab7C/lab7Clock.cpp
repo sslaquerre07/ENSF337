@@ -9,13 +9,20 @@ Clock::Clock():hour(0),minute(0),second(0){
 
 //seconds ctor
 Clock::Clock(const int seconds){
+    int good_sec = seconds;
+    while(good_sec >= 86400){
+        good_sec -= 86400;
+    }
     if(seconds<0){
         hour=0;
         minute=0;
         second=0;
     }
     else{
-        sec_to_hms(seconds);
+        int* values = sec_to_hms(good_sec);
+        hour = values[0];
+        minute = values[1];
+        second = values[2];
     }
 }
 
@@ -77,12 +84,14 @@ int Clock::hms_to_sec(){
 }
 
 //Sets the clock values
-void Clock::sec_to_hms(int n){
-    hour = n/3600;
-    n -= hour*3600;
-    minute = n/60;
-    n -= minute*60;
-    second = n;
+int* Clock::sec_to_hms(int n){
+    int* hms = new int[3];
+    hms[0] = n/3600;
+    n -= hms[0]*3600;
+    hms[1] = n/60;
+    n -= hms[1]*60;
+    hms[2] = n;
+    return hms;
 }
 
 //ALL ADDITIONAL FUNCTIONS
@@ -110,15 +119,15 @@ void Clock::increment(){
 
 //Decrements 1 second to the clock
 void Clock::decrement(){
-   if(hour == 0){
-        hour = 23;
+   if(second == 0){
+        second = 59;
         if(minute == 0){
             minute = 59;
-            if(second == 0){
-                second = 59;
+            if(hour == 0){
+                hour = 23;
             }
             else{
-                second--;
+                hour--;
             }
         }
         else{
@@ -126,10 +135,24 @@ void Clock::decrement(){
         } 
    }
    else{
-        hour--;
+        second--;
    } 
 }
 
 void Clock::add_seconds(int seconds){
-
+    int* extra_time = sec_to_hms(seconds);
+    second += extra_time[2];
+    if(second > 59){
+        minute++;
+        second -= 60;
+    }
+    minute += extra_time[1];
+    if(minute > 59){
+        hour++;
+        minute -= 60;
+    }
+    hour += extra_time[0];
+    while(hour>23){
+        hour -= 24;
+    }
 }

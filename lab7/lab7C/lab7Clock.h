@@ -17,7 +17,7 @@ class Clock{
     private:
         int hour, minute, second;
         int hms_to_sec();
-        void sec_to_hms(int n);
+        int* sec_to_hms(int n);
         
 };
 
