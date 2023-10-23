@@ -1,4 +1,6 @@
 #include "lab7Clock.h"
+
+
 //ALL CONSTRUCTORS
 //Default ctor
 Clock::Clock():hour(0),minute(0),second(0){
@@ -33,15 +35,24 @@ Clock::Clock(const int hours, const int minutes, const int seconds){
 
 //ALL SETTER FUNCTIONS
 void Clock::set_hour(const int hours){
-    hour = hours;
+    if(hours<0 || hours>23){}
+    else{
+        hour = hours;
+    }
 }
 
 void Clock::set_minute(const int minutes){
-    minute = minutes;
+    if(minutes<0 || minutes>59){}
+    else{
+       minute = minutes; 
+    }
 }
 
 void Clock::set_second(const int seconds){
-    second = seconds;
+    if(seconds<0 || seconds>59){}
+    else{
+      second = seconds;  
+    }
 }
 
 //ALL GETTER FUNCTIONS
@@ -120,5 +131,5 @@ void Clock::decrement(){
 }
 
 void Clock::add_seconds(int seconds){
-    
+
 }
