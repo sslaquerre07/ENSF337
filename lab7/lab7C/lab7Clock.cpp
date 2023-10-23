@@ -139,6 +139,7 @@ void Clock::decrement(){
    } 
 }
 
+//Adds a certain amount of seconds to the clock object
 void Clock::add_seconds(int seconds){
     int* extra_time = sec_to_hms(seconds);
     second += extra_time[2];
