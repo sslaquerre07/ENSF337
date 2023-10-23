@@ -82,11 +82,21 @@ void SimpleVector::push_back(TYPE val) {
 
 
 SimpleVector::SimpleVector(const SimpleVector& source) {
-//  THIS FUNCTION MUST BE COMPLETED BY THE STUDENTS
-    
+  sizeM = source.sizeM;
+  capacityM = source.capacityM;
+  storageM = new TYPE[capacityM];
+  for(int i =0; i < sizeM; i++)
+    storageM[i] = source.storageM[i];
 }
 
 SimpleVector& SimpleVector::operator= (const SimpleVector& rhs ){
-//  THIS FUNCTION MUST BE COMPLETED BY THE STUDENTS    
-    return *this;
+  if(this != &rhs){
+    delete storageM;
+    sizeM = rhs.sizeM;
+    capacityM = rhs.capacityM;
+    storageM = new TYPE[capacityM];
+    for(int i =0; i < sizeM; i++)
+      storageM[i] = rhs.storageM[i];
+  }
+  return *this;
 }

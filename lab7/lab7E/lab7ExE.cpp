@@ -35,7 +35,7 @@ int main(void)
     // When ready to test copying objects, change #if 0 to #if 1. First, try to test
     // your assignment operator by moving the #if 0 to the line before object v4 is
     // is declared.
-#if 0
+#if 1
     v2 = v1;
     v1.at(2) = 8000;
     cout << "\nAfter copy v2 is expected to display: 1000 2000 12" << endl;
