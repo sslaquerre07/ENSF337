@@ -1,3 +1,11 @@
+/*
+ *  File Name: lab7Clock.h
+ *  Assignment: Lab 7 Exercise C
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: October 24th,2023
+ */
+
 #ifndef CLOCK
 #define CLOCK
 class Clock{

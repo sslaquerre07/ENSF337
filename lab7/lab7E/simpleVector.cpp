@@ -1,5 +1,10 @@
-// ENSF 337- lab 7 - Exercise D
-//  simpleVector.cpp
+/*
+ *  File Name: simpleVector.cpp
+ *  Assignment: Lab 7 Exercise E
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: October 24th,2023
+ */
 
 /*
  NOTES ON MEMORY ALLOCATION POLICIES FOR SimpleVector OBJECT:
