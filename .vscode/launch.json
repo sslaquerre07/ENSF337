@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/lab7/lab7E",
-      "program": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/lab7/lab7E/build/Debug/outDebug",
+      "cwd": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/lab7/lab7C",
+      "program": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/lab7/lab7C/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
