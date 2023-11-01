@@ -55,10 +55,12 @@ int main() {
 
 
 String_Vector transpose (const String_Vector& sv) {
-    
-    // STUDENTS MUST COMPLETE THE DEFINITION OF THIS FUNCTION.
-     
     String_Vector vs;
-    return vs;
-    
+    vs.resize(sv.at(0).length());
+    for(int i=0; i<vs.size();i++){
+        for(int j=0; j<sv.size();j++){
+            vs.at(i).push_back(sv.at(j).at(i));
+        }
+    }
+    return vs;   
 }
