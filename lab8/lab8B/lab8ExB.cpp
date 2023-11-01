@@ -53,7 +53,7 @@ int main(void)
     cout << "Here is your array of ints after sorting:  \n" ;
     for(i = 0; i < n_elements; i++)
         cout << a[i] << endl;
-#if 0
+#if 1
     const char* strings[] = { "Red", "Blue", "pink","apple", "almond","white",
                                                "nut", "Law", "cup"};
     
@@ -95,4 +95,22 @@ void insertion_sort(int *a, int n)
         
         a[j] = value_to_insert;
     }
+}
+
+void insertion_sort(const char** str_array, int n){
+    int i;
+    int j;
+    const char* string_to_insert;
+    for(int i =1; i<n;i++){
+        string_to_insert = str_array[i];
+
+        j=i;
+        int k = 0;
+        while(j>0 && str_array[j-1][k] >= string_to_insert[k]){
+            str_array[j] = str_array[j-1];
+            j--;
+        }
+        str_array[j] = string_to_insert;
+    }
+    
 }
