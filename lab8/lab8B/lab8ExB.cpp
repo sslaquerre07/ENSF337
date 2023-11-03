@@ -54,7 +54,7 @@ int main(void)
     for(i = 0; i < n_elements; i++)
         cout << a[i] << endl;
 #if 1
-    const char* strings[] = { "Red", "Blue", "pink","apple", "almond","white",
+    const char* strings[] = { "Red", "Blue","pink", "apple", "almond","white",
                                                "nut", "Law", "cup"};
     
     n_elements = sizeof(strings) / sizeof(char*);
@@ -107,6 +107,10 @@ void insertion_sort(const char** str_array, int n){
         j=i;
         int k = 0;
         while(j>0 && str_array[j-1][k] >= string_to_insert[k]){
+            if(str_array[j-1][k] == string_to_insert[k]){
+                k++;
+                continue;
+            }
             str_array[j] = str_array[j-1];
             j--;
         }
