@@ -55,17 +55,24 @@ double Matrix::get_sum_row(int i) const
 
 void Matrix::sum_of_rows()const
 {
-   
-    // COMMENT OUT THE FOLLOWING LINE AND COMPLETE THE DEFINITION OF THIS FUNCTION
-    cout << "\nSorry I don't know how to calculate sum of rowsM in a matrix. ";
-
+   for(int i = 0; i < rowsM; i++){
+        double sum = 0;
+        for(int j = 0; j < colsM; j++){
+            sum += this->matrixM[i][j];
+        }
+        sum_rowsM[i] = sum;
+   }
 }
 
 void Matrix::sum_of_cols()const
 {
-    // COMMENT OUT THE FOLLOWING LINE AND COMPLETE THE DEFINITION OF THIS FUNCTION
-    cout << "\nSorry I don't know how to calculate sum of columns in a matrix. ";
-    
+    for(int i = 0; i < colsM; i++){
+        double sum = 0;
+        for(int j = 0; j < rowsM; j++){
+            sum += this->matrixM[j][i];
+        }
+        sum_colsM[i] = sum;
+    }
 }
 
 void Matrix::copy(const Matrix& source)
@@ -96,14 +103,21 @@ void Matrix::copy(const Matrix& source)
         matrixM[i] = new double[colsM];
         assert(matrixM[i] != NULL);
     }
-    // STUDENTS MUST COMMENT OUT THE FOLLOWING LINE AND FIX THE FUNCTION'S PROBLEM
-    cout << "\nSorry copy fucntion is defective. ";
+    for(int i = 0; i < rowsM; i++){
+        for(int j = 0; j < colsM; j++){
+            matrixM[i][j] = source.at(i,j);
+        }
+    }
 }
 
     
 
 void Matrix::destroy()
 {
-    // COMMENT OUT THE FOLLOWING LINE AND COMPLETE THE DEFINITION OF THIS FUNCTION
-    cout << "\nProgram ended without destroying matrices.\n";
+    delete [] sum_colsM;
+    delete [] sum_rowsM;
+    for(int i = 0;i<rowsM;i++){
+        delete [] matrixM[i];
+    }
+    delete [] matrixM;
 }
