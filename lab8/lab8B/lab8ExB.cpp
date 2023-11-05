@@ -98,23 +98,45 @@ void insertion_sort(int *a, int n)
 }
 
 void insertion_sort(const char** str_array, int n){
-    int i;
-    int j;
-    const char* string_to_insert;
-    for(int i =1; i<n;i++){
-        string_to_insert = str_array[i];
-
-        j=i;
-        int k = 0;
-        while(j>0 && str_array[j-1][k] >= string_to_insert[k]){
-            if(str_array[j-1][k] == string_to_insert[k]){
-                k++;
+    for(int i=1; i<n;i++){
+        int small_char = 0;
+        const char* str1 = str_array[i-1];
+        const char* str2 = str_array[i];
+        int index = 0;
+        while(1){
+            if(str1[index] == '\0' && str2[index] == '\0'){
+                break;
+            }
+            else if(str1[index] == '\0'){
+                small_char = 1;
+                break;
+            }
+            else if(str2[index] == '\0'){
+                break;
+            }
+            else if(str1[index] == str2[index]){
+                index++;
                 continue;
             }
-            str_array[j] = str_array[j-1];
-            j--;
+            else if(str1[index] < str2[index]){
+                small_char = 1;
+                break;
+            }
+            else{
+                break;
+            }
         }
-        str_array[j] = string_to_insert;
+        
+        if(small_char == 0){
+            const char* tmp = str1;
+            str_array[i-1] = str2;
+            str_array[i] = tmp;
+            i = 0;
+            delete tmp;
+            continue;
+        }
+        else{
+            continue;
+        }
     }
-    
 }
