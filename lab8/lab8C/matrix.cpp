@@ -58,7 +58,7 @@ void Matrix::sum_of_rows()const
    for(int i = 0; i < rowsM; i++){
         double sum = 0;
         for(int j = 0; j < colsM; j++){
-            sum += this->matrixM[i][j];
+            sum += matrixM[i][j];
         }
         sum_rowsM[i] = sum;
    }
@@ -69,7 +69,7 @@ void Matrix::sum_of_cols()const
     for(int i = 0; i < colsM; i++){
         double sum = 0;
         for(int j = 0; j < rowsM; j++){
-            sum += this->matrixM[j][i];
+            sum += matrixM[j][i];
         }
         sum_colsM[i] = sum;
     }
@@ -105,8 +105,14 @@ void Matrix::copy(const Matrix& source)
     }
     for(int i = 0; i < rowsM; i++){
         for(int j = 0; j < colsM; j++){
-            matrixM[i][j] = source.at(i,j);
+            matrixM[i][j] = source.matrixM[i][j];
         }
+    }
+    for(int i=0;i<rowsM;i++){
+        sum_rowsM[i] = source.sum_rowsM[i];
+    }
+    for(int i=0;i<colsM;i++){
+        sum_colsM[i] = source.sum_colsM[i];
     }
 }
 
