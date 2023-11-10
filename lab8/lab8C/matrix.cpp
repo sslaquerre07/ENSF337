@@ -1,4 +1,10 @@
-//   matrix.cpp
+/*
+ *  File Name: matrix.cpp
+ *  Assignment: Lab 8 Exercise C
+ *  Lab section: 03
+ *  Completed by: Samuel Laquerre
+ *  Submission Date: Nov 7th,2023
+ */
 
 
 #include "matrix.h"
@@ -77,7 +83,6 @@ void Matrix::sum_of_cols()const
 
 void Matrix::copy(const Matrix& source)
 {
-    // THIS FUNCITON IS DEFECTIVE AND DOSEN'T PROPERLY MAKE THE COPY OF SROUCE
     if(source.matrixM == NULL){
         matrixM = NULL;
         sum_rowsM = NULL;

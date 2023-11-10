@@ -1,21 +1,12 @@
 #include <stdio.h>
 
-int is_fibonacci_sequence(const int* x, int n){
-    if (n<2) return 0;
-    if(x[0] != 0 || x[1] != 1) return 0;
-    for(int i=2;i<n;i++){
-        if(x[i] == (x[i-1]+x[i-2])){
-            i++;
-        }
-        else{
-            return 0;
-        }
-    }
-    return 1;
-}
-
+#define WINDOWS
 int main(){
-    int possible_fib[] = {0,1,1,2,3,4};
-    printf("%d", is_fibonacci_sequence(possible_fib, 1));
+    char s1[20] = "Barlow";
+    char s2[] = "Victoria";
+    const char* p = "ABC";
+    printf("\n%2d %2d %2d %2d %2d", (int)sizeof(s1), (int)sizeof(s2), (int)sizeof(int), (int)sizeof(p), (int)sizeof(*p));
+
+
 }
 
