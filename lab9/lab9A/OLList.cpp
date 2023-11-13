@@ -83,7 +83,17 @@ void OLList::remove(const ListItem& itemA)
             before = maybe_doomed;
             maybe_doomed = maybe_doomed->next;
         }
-        // point three
+        if (maybe_doomed == nullptr){
+            return;
+        }
+        else if(maybe_doomed->item == itemA){
+            before->next = maybe_doomed->next;
+            maybe_doomed->next = nullptr;
+            maybe_doomed->item = 0;
+        }
+        else{
+            return;
+        }
     }
     // the remaining part of this function is missing. As part of exercise D
     // students are supposed to complete the rest of the definition of this function.
@@ -91,29 +101,33 @@ void OLList::remove(const ListItem& itemA)
 
 void OLList::destroy()
 {
-    
-    // this function is not properly designed. As part of the exercise D
-    // For exercise B: students are supposed to remove the folloiwng lines and
-    // complete the definition of this helper function.
-    cout << "OLList::destroy was called but isn't ready for use"
-    << "--program is terminated.\n";
+    Node* next_up = headM;
+    while(next_up != nullptr){
+        next_up = next_up->next;
+        delete headM;
+        headM = next_up;
+    }
     headM = 0;
 }
 
 void OLList::copy(const OLList& source)
 {
-    // this function is not properly designed. As part of the exercise D
-    // For exercise B: students are supposed to remove the folloiwng lines and
-    // complete the definition of this helper function.
-    
-    // The only effect of the next line is to tell the compiler
-    // not to generate an "unused argument" warning.  Don't leave it
-    // it in your solution.
-    (void) source;
-    
-    cout << "OLList::copy was called but isn't ready for use"
-    << "--program is terminated.\n";
-    exit(1);
+    Node* copied_node = source.headM;
+    Node* new_node = new Node;
+    new_node->item = copied_node->item;
+    new_node->next = nullptr;
+    headM = new_node;
+    copied_node = copied_node -> next;
+    Node* before = headM;
+    while(copied_node != nullptr){
+        new_node = new Node;
+        new_node->item = copied_node->item;
+        new_node->next = nullptr;
+        before -> next = new_node;
+        copied_node = copied_node -> next;
+        before = new_node;
+    }
+    copied_node = nullptr, new_node = nullptr, before = nullptr;
 }
 
 
