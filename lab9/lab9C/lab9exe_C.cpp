@@ -38,9 +38,10 @@ int main()
 int sum_of_array(const int *a, int n)
 {
     int sum = 0;
-    for(int i=0; i < n; i++)
-        sum += a[i];
-    
+    if(n != 1){
+        sum_of_array(a+1, n-1);
+    }
+    sum += *a;
     return sum;
 }
 
