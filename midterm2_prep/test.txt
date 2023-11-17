@@ -1,0 +1,90 @@
+Create a class called 'Matrix' containing constructor that initializes the number of rows and the number of columns of a new Matrix object. The Matrix class has the following information:
+1 - number of rows of matrix
+2 - number of columns of matrix
+3 - elements of matrix (You can use 2D vector)
+The Matrix class has functions for each of the following:
+1 - get the number of rows
+2 - get the number of columns
+3 - set the elements of the matrix at a given position (i,j)
+4 - adding two matrices.
+5 - multiplying the two matrices
+You can assume that the dimensions are correct for the multiplication and addition.
+
+
+#include <iostream>
+using namespace std;
+#include <vector>
+
+typedef vector<vector<int>> matrix;
+
+class Matrix{
+    public:
+        Matrix();
+        Matrix(const int rows, const int cols, const matrix* m);
+        Matrix(const Matrix& src);
+        Matrix& operator=(const Matrix& src);
+        ~Matrix();
+        display(const Matrix& m);
+        int get_rows() const;
+        int get_cols() const;
+        void set_pos(int i, int j);
+        Matrix* add_matrix(matrix* m1, matrix* m2);
+        
+    private:
+        int rowsM;
+        int colsM;
+        matrix* storageM;
+
+};
+
+Matrix::Matrix():storageM(0), rowsM(0), colsM(0){}
+
+Matrix::Matrix(const int rows, const int cols, const matrix* m){
+    rowsM = rows;
+    colsM = cols;
+    for(int i = 0; i< rowsM;i++){
+        storageM->at(i) = m->at(i);
+    }
+}
+
+Matrix::Matrix(const Matrix& src){
+    rowsM = src.rowsM;
+    colsM = src.colsM;
+    storageM = new matrix(rowsM);
+    for(int i = 0; i< rowsM;i++){
+        storageM->at(i) = src.storageM->at(i);
+    }
+}
+
+Matrix& Matrix::operator=(const Matrix& src){
+    if(this != &src){
+        delete storageM;
+        rowsM = src.rowsM;
+        colsM = src.colsM;
+        storageM = new matrix(rowsM);
+        for(int i = 0; i< rowsM;i++){
+            storageM->at(i) = src.storageM->at(i);
+        }
+    }
+}
+
+Matrix::~Matrix(){
+    rowsM = 0;
+    colsM = 0;
+    delete storageM;
+}
+
+void Matrix::display(const Matrix& m){
+    for(int i = 0; i < rowsM; i++){
+        for(int j = 0;j < colsM; j++){
+            cout << m.at(i).at(j);
+        }
+        cout << endl;
+    }
+}
+
+
+int main(){
+    
+}
+

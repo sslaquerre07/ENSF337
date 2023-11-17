@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/lab9/lab9C",
-      "program": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/lab9/lab9C/build/Debug/outDebug",
+      "cwd": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/midterm2_prep",
+      "program": "c:/Users/sslaq/OneDrive/Documents/GitHub/ENSF337/midterm2_prep/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
